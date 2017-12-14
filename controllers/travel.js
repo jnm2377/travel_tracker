@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 })
 
 //update ---TBH NOT SURE IF THIS IS RIGHT
-router.put('/edit/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const updatedTrip = await Trip.findByIdAndUpdate(req.params.id);
     res.status(200).json(updatedTrip); //not sure if we're supposed to redirect instead?
@@ -74,7 +74,7 @@ router.put('/edit/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const deleteTrip = await Trip.findByIdAndRemove(req.params.id);
-    res.redirect('/travel');//also not sure about this last part
+    res.status(200).json({message:"All Systems Nominal"});//also not sure about this last part
   } catch (e) {
     console.log(e);
     res.status(400).json({err: e.message});
