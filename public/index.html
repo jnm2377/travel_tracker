@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="TravelApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Travel App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="MainController as ctrl">
+    <div class="container">
+      {{ctrl.hello}}
+    <div ng-repeat="trip in ctrl.trips" class="traveldiv">
+      <h3>{{trip.city}}</h3>
+      <h3>{{trip.state}}</h3>
+      <h3>{{trip.country}}</h3>
+      <ul ng-repeat="landmark in trip.landmarks">
+        <li>
+          {{landmark}}
+        </li>
+      </ul>
+      <h3>{{trip.dates}}</h3>
+      <h3>{{trip.description}}</h3>
+      <div ng-repeat="img in trip.img">
+        <img ng-src={{img}}>
+      </div>
+
+    </div>
+
+    </div>
+  </body>
+</html>
