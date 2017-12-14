@@ -58,5 +58,28 @@ router.post('/', async (req, res) => {
   }
 })
 
+//update ---TBH NOT SURE IF THIS IS RIGHT
+router.put('/edit/:id', async (req, res) => {
+  try {
+    const updatedTrip = await Trip.findByIdAndUpdate(req.params.id);
+    res.status(200).json(updatedTrip); //not sure if we're supposed to redirect instead?
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({err: e.message});
+  }
+})
+
+
+//delete ---TBH NOT SURE IF THIS IS RIGHT
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteTrip = await Trip.findByIdAndRemove(req.params.id);
+    res.redirect('/travel');//also not sure about this last part
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({err: e.message});
+  }
+})
+
 
 module.exports = router;
