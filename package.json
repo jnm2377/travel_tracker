@@ -1,0 +1,24 @@
+{
+  "name": "travel_tracker",
+  "version": "1.0.0",
+  "description": "Keeps a catalog of the places you've traveled to. You can add, update or delete records, as well as view them individually.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnm2377/travel_tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnm2377/travel_tracker/issues"
+  },
+  "homepage": "https://github.com/jnm2377/travel_tracker#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7"
+  }
+}
