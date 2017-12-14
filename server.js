@@ -22,7 +22,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 const travelController = require('./controllers/travel.js');
+const seedController = require('./controllers/seed.js');
 app.use('/travel', travelController);
+app.use('/seed', seedController);
 app.use(express.static('public'));
 
 
