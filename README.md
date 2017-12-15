@@ -3,3 +3,4 @@ Keeps a catalog of the places you've traveled to. You can add, update or delete 
 
 ## Collaborators
 Josefina Mancilla
+Blake Harris
