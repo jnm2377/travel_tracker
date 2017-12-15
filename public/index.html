@@ -56,6 +56,7 @@
       <label for="landmarks">Landmarks</label>
       <input id="landmarks" type="text" value='{{ctrl.editTrip.landmarks}}'/>
       <button type="submit">Submit</button>
+      <button ng-click="ctrl.deleteTrip(editTrip)">Delete Trip</button>
       <button ng-click="ctrl.edit = false">Nevermind</button>
     </form>
 
