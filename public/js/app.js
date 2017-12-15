@@ -114,6 +114,11 @@ app.controller("MainController",["$http",function ($http) {
       console.log("Updated Trip: "+response.data);
       this.trip = response.data;
       this.newTrip=response.data;
+      const updateByIndex = this.countryTrips.findIndex((elem) => {
+        return elem._id==id;
+      });
+      this.countryTrips[updateByIndex]=this.newTrip;
+
     },(errx) => {
       console.log("Error X: "+errx);
     })
@@ -131,6 +136,10 @@ app.controller("MainController",["$http",function ($http) {
     })
     .then((response) => {
       console.log("Trip Deleted: "+response.data);
+      const removeByIndex = this.countryTrips.findIndex((elem) => {
+        return elem._id==id;
+      });
+      this.countryTrips.splice(removeByIndex , 1);
     },(errx) => {
       console.log("Error X: "+errx);
     })
