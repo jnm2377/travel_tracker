@@ -61,6 +61,7 @@ app.controller("MainController",["$http",function ($http) {
       console.log("Error: "+err);
     });
   };
+  this.getCountries();
 // end getCountries
   this.getCount = () => {
     $http({
@@ -77,6 +78,7 @@ app.controller("MainController",["$http",function ($http) {
       console.log("Error: "+err);
     });
   };
+  this.getCount();
 // end getCount
   this.processForm = () => {
     $http({
