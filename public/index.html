@@ -34,30 +34,31 @@
         <img ng-src={{img}}>
       </div>
       <button ng-click='ctrl.showEdit(trip)'>Edit</button>
+      <button ng-click="ctrl.deleteTrip(trip)">Delete Trip</button>
 
 
     </div>
 
-    <form ng-if="ctrl.edit" ng-submit='ctrl.updateTrip(editTrip)'>
+    <form ng-if="ctrl.edit" ng-submit='ctrl.updateTrip()'>
       <label for="city">City</label>
-      <input id="city" type="text" value='{{ctrl.editTrip.city}}' required/>
+      <input type="text" ng-model='ctrl.trip.city' required/>
       <label for="state">State</label>
-      <input id="state" type="text" value='{{ctrl.editTrip.state}}' />
+      <input  type="text" ng-model='ctrl.trip.state' />
       <label for="country">Country</label>
-      <input id="country" type="text" value='{{ctrl.editTrip.country}}' required/>
+      <input  type="text" ng-model='ctrl.trip.country' required/>
       <label for="dates">Dates Traveled</label>
-      <input id="dates" type="text" value='{{ctrl.editTrip.dates}}' />
+      <input  type="text" ng-model='ctrl.trip.dates' />
       <label for="description">Description</label>
-      <textarea id="description" type="text" value='{{ctrl.editTrip.description}}'  required></textarea>
+      <textarea  type="text" ng-model='ctrl.editTrip.description'  required></textarea>
       <label for="images">Images</label>
-      <input id="images" type="text" value='{{ctrl.editTrip.img[0]}}'/>
-      <input id="images" type="text" value='{{ctrl.editTrip.img[1]}}'/>
-      <input id="images" type="text" value='{{ctrl.editTrip.img[2]}}'/>
+      <input  type="text" ng-model='ctrl.trip.img[0]'/>
+      <input  type="text" ng-model='ctrl.trip.img[1]'/>
+      <input  type="text" ng-model='ctrl.trip.img[2]'/>
       <label for="landmarks">Landmarks</label>
-      <input id="landmarks" type="text" value='{{ctrl.editTrip.landmarks}}'/>
+      <input  type="text" ng-model='ctrl.trip.landmarks'/>
       <button type="submit">Submit</button>
-      <button ng-click="ctrl.deleteTrip(editTrip)">Delete Trip</button>
-      <button ng-click="ctrl.edit = false">Nevermind</button>
+<!--  -->
+      <button ng-click="ctrl.backup()">Nevermind</button>
     </form>
 
     </div>

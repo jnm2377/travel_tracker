@@ -103,19 +103,19 @@ app.controller("MainController",["$http",function ($http) {
     });
   };
 // end postNewTrip
-  this.updateTrip= (trip) => {
-    this.trip = trip;
+  this.updateTrip= () => {
     $http({
       url:"/travel/"+this.trip._id,
       method:"PUT",
-      data:trip
+      data:this.trip
     })
     .then((response) => {
       console.log("Updated Trip: "+response.data);
+      console.log(this.countryTrips);
       this.trip = response.data;
       this.newTrip=response.data;
       const updateByIndex = this.countryTrips.findIndex((elem) => {
-        return elem._id==id;
+        return elem._id==this.trip._id;
       });
       this.countryTrips[updateByIndex]=this.newTrip;
 
@@ -128,7 +128,7 @@ app.controller("MainController",["$http",function ($http) {
   };
   //end update trip
   this.deleteTrip= (trip) => {
-    this.trip = trip;
+    this.trip=trip;
     $http({
       url:"/travel/"+this.trip._id,
       method:"DELETE",
@@ -137,9 +137,10 @@ app.controller("MainController",["$http",function ($http) {
     .then((response) => {
       console.log("Trip Deleted: "+response.data);
       const removeByIndex = this.countryTrips.findIndex((elem) => {
-        return elem._id==id;
+        return elem._id==this.trip_id;
       });
       this.countryTrips.splice(removeByIndex , 1);
+      this.getCountries();
     },(errx) => {
       console.log("Error X: "+errx);
     })
@@ -150,8 +151,16 @@ app.controller("MainController",["$http",function ($http) {
 
   //show edit form
   this.showEdit = (trip) => {
-    this.edit = true;
+    this.trip=trip;
+    this.tripbackup=JSON.parse(JSON.stringify(trip));
     this.editTrip = trip;
+    this.edit = true;
+  }
+  this.backup = () => {
+    const backupIndex = this.countryTrips.indexOf(this.trip);
+    this.trip=this.tripbackup;
+    this.countryTrips[backupIndex]=this.holidaybackup;
+    this.edit = false;
   }
   // end main controller
   //
