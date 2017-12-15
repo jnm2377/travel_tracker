@@ -5,7 +5,7 @@ app.controller("MainController",["$http",function ($http) {
   this.trips=[];
   this.trip={};
   this.count=0;
-  this.tripsByCountry=[];
+  this.countryTrips=[];
   this.countries=[];
   this.formData = {};
   this.newTrip={};
@@ -30,14 +30,14 @@ app.controller("MainController",["$http",function ($http) {
   };
   this.getTrips();
   // end get trips
-  this.getByCountry = (countryname) => {
+  this.showCountryTrips = (country) => {
     $http({
-      url:"/travel/byCountry/"+countryname,
+      url:"/travel/byCountry/"+country,
       method:"GET"
     })
     .then((response) => {
       console.log("tripsByCountry: "+response.data);
-      this.tripsByCountry=response.data;
+      this.countryTrips=response.data;
     },(errx) => {
       console.log("Error X: "+errx);
     })
