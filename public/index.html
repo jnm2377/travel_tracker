@@ -8,8 +8,20 @@
   </head>
   <body ng-controller="MainController as ctrl">
     <div class="container">
-      {{ctrl.hello}}
-    <div ng-repeat="trip in ctrl.trips" class="traveldiv">
+
+    <h1>Your Travel Tracker</h1>
+
+    <h3>Create New Travel Record</h3>
+    <div ng-include="'partials/createForm.html'"></div>
+
+    <div class="listCountries" ng-repeat="country in ctrl.countries">
+      <!-- app.js needs to get array of country names from url: /travel/countries and set into this.countries array (this.countries = response.data)-->
+      <h3 ng-click='ctrl.showCountryTrips(country)'>{{country}}</h3>
+      <!-- passing through the country name as part of the parameter for method so that we can use it to get url: '/travel/byCountry/'+country
+      app.js needs this.showCountryTrips = (country) => {inside here, need to set response.data equal to this.countryTrips, also create intial state of this.click = false, and inside this function make this.click = true so that when cliked the data is displayed below}  -->
+    </div>
+
+    <div ng-if="ctrl.click" ng-repeat="trip in ctrl.countryTrips">
       <h3>{{trip.city}}</h3>
       <h3>{{trip.state}}</h3>
       <h3>{{trip.country}}</h3>
@@ -23,8 +35,26 @@
       <div ng-repeat="img in trip.img">
         <img ng-src={{img}}>
       </div>
+      <button>Edit</button>
+
 
     </div>
+
+    <!-- <div ng-repeat="trip in ctrl.trips" class="traveldiv">
+      <h3>{{trip.city}}</h3>
+      <h3>{{trip.state}}</h3>
+      <h3>{{trip.country}}</h3>
+      <ul ng-repeat="landmark in trip.landmarks">
+        <li>
+          {{landmark}}
+        </li>
+      </ul>
+      <h3>{{trip.dates}}</h3>
+      <h3>{{trip.description}}</h3>
+      <div ng-repeat="img in trip.img">
+        <img ng-src={{img}}>
+      </div>
+    </div> -->
 
     </div>
   </body>
