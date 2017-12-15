@@ -4,7 +4,7 @@ const router = express.Router();
 const Trip = require('../models/travel.js');
 
 //how many trips have we taken? good question.
-router.get('count', async (req, res) => {
+router.get('/count', async (req, res) => {
   try {
     const count = await Trip.count();
     res.send(count.toString());
@@ -25,7 +25,7 @@ router.get('/countries', async (req, res) => {
 })
 
 //find places we've traveled to within a country
-router.get('byCountry/:country', async (req, res) => {
+router.get('/byCountry/:country', async (req, res) => {
   try {
     const countryTrips = await Trip.find({country: req.params.country});
     res.status(200).json(countryTrips);
@@ -54,6 +54,29 @@ router.post('/', async (req, res) => {
     res.status(200).json(newTrip);
   } catch (e) {
     console.log("CAN'T CREATE YOUR TRIP! Here's why:", e);
+    res.status(400).json({err: e.message});
+  }
+})
+
+//update ---TBH NOT SURE IF THIS IS RIGHT
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedTrip = await Trip.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedTrip);
+  } catch (e) {
+    console.log(e);
+    res.status(400).json({err: e.message});
+  }
+})
+
+
+//delete ---TBH NOT SURE IF THIS IS RIGHT
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteTrip = await Trip.findByIdAndRemove(req.params.id);
+    res.status(200).json(deleteTrip);//also not sure about this last part
+  } catch (e) {
+    console.log(e);
     res.status(400).json({err: e.message});
   }
 })
