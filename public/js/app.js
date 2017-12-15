@@ -78,7 +78,7 @@ app.controller("MainController",["$http",function ($http) {
     });
   };
 // end getCount
-  this.postNewTrip = () => {
+  this.processForm = () => {
     $http({
       url:"/travel/",
       method:"POST",
