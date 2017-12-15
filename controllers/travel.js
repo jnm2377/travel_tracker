@@ -4,7 +4,7 @@ const router = express.Router();
 const Trip = require('../models/travel.js');
 
 //how many trips have we taken? good question.
-router.get('count', async (req, res) => {
+router.get('/count', async (req, res) => {
   try {
     const count = await Trip.count();
     res.send(count.toString());
