@@ -25,7 +25,7 @@ router.get('/countries', async (req, res) => {
 })
 
 //find places we've traveled to within a country
-router.get('byCountry/:country', async (req, res) => {
+router.get('/byCountry/:country', async (req, res) => {
   try {
     const countryTrips = await Trip.find({country: req.params.country});
     res.status(200).json(countryTrips);
@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {new: true});
-    res.status(200).json(updatedTrip); 
+    res.status(200).json(updatedTrip);
   } catch (e) {
     console.log(e);
     res.status(400).json({err: e.message});
