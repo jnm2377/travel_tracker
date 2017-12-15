@@ -136,6 +136,11 @@ app.controller("MainController",["$http",function ($http) {
     });
   };
 
+  //show edit form
+  this.showEdit = (trip) => {
+    this.edit = true;
+    this.editTrip = trip;
+  }
   // end main controller
   //
 }]);

@@ -10,15 +10,13 @@
     <div class="container">
 
     <h1>Your Travel Tracker</h1>
+    <h5>You have taken: {{ctrl.count}} trips</h5>
 
     <h3>Create New Travel Record</h3>
     <div ng-include="'partials/createForm.html'"></div>
 
     <div class="listCountries" ng-repeat="country in ctrl.countries">
-      <!-- app.js needs to get array of country names from url: /travel/countries and set into this.countries array (this.countries = response.data)-->
       <h3 ng-click='ctrl.showCountryTrips(country)'>{{country}}</h3>
-      <!-- passing through the country name as part of the parameter for method so that we can use it to get url: '/travel/byCountry/'+country
-      app.js needs this.showCountryTrips = (country) => {inside here, need to set response.data equal to this.countryTrips, also create intial state of this.click = false, and inside this function make this.click = true so that when cliked the data is displayed below}  -->
     </div>
 
     <div ng-if="ctrl.click" ng-repeat="trip in ctrl.countryTrips">
@@ -35,26 +33,31 @@
       <div ng-repeat="img in trip.img">
         <img ng-src={{img}}>
       </div>
-      <button>Edit</button>
+      <button ng-click='ctrl.showEdit(trip)'>Edit</button>
 
 
     </div>
 
-    <!-- <div ng-repeat="trip in ctrl.trips" class="traveldiv">
-      <h3>{{trip.city}}</h3>
-      <h3>{{trip.state}}</h3>
-      <h3>{{trip.country}}</h3>
-      <ul ng-repeat="landmark in trip.landmarks">
-        <li>
-          {{landmark}}
-        </li>
-      </ul>
-      <h3>{{trip.dates}}</h3>
-      <h3>{{trip.description}}</h3>
-      <div ng-repeat="img in trip.img">
-        <img ng-src={{img}}>
-      </div>
-    </div> -->
+    <form ng-if="ctrl.edit" ng-submit='ctrl.updateTrip(editTrip)'>
+      <label for="city">City</label>
+      <input id="city" type="text" value='{{ctrl.editTrip.city}}' required/>
+      <label for="state">State</label>
+      <input id="state" type="text" value='{{ctrl.editTrip.state}}' />
+      <label for="country">Country</label>
+      <input id="country" type="text" value='{{ctrl.editTrip.country}}' required/>
+      <label for="dates">Dates Traveled</label>
+      <input id="dates" type="text" value='{{ctrl.editTrip.dates}}' />
+      <label for="description">Description</label>
+      <textarea id="description" type="text" value='{{ctrl.editTrip.description}}'  required></textarea>
+      <label for="images">Images</label>
+      <input id="images" type="text" value='{{ctrl.editTrip.img[0]}}'/>
+      <input id="images" type="text" value='{{ctrl.editTrip.img[1]}}'/>
+      <input id="images" type="text" value='{{ctrl.editTrip.img[2]}}'/>
+      <label for="landmarks">Landmarks</label>
+      <input id="landmarks" type="text" value='{{ctrl.editTrip.landmarks}}'/>
+      <button type="submit">Submit</button>
+      <button ng-click="ctrl.edit = false">Nevermind</button>
+    </form>
 
     </div>
   </body>
