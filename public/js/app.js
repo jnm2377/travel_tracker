@@ -162,6 +162,11 @@ app.controller("MainController",["$http",function ($http) {
     this.countryTrips[backupIndex]=this.holidaybackup;
     this.edit = false;
   }
+
+  this.closeModal = () => {
+    this.edit = false;
+    this.click = false;
+  }
   // end main controller
   //
 }]);
