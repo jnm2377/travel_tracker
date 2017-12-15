@@ -61,8 +61,8 @@ router.post('/', async (req, res) => {
 //update ---TBH NOT SURE IF THIS IS RIGHT
 router.put('/:id', async (req, res) => {
   try {
-    const updatedTrip = await Trip.findByIdAndUpdate(req.params.id);
-    res.status(200).json(updatedTrip); //not sure if we're supposed to redirect instead?
+    const movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updatedTrip); 
   } catch (e) {
     console.log(e);
     res.status(400).json({err: e.message});
