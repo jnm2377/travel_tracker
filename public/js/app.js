@@ -9,6 +9,7 @@ app.controller("MainController",["$http",function ($http) {
   this.countries=[];
   this.formData = {};
   this.newTrip={};
+  this.click=false;
 
 
   //get trips
@@ -36,8 +37,9 @@ app.controller("MainController",["$http",function ($http) {
       method:"GET"
     })
     .then((response) => {
-      console.log("tripsByCountry: "+response.data);
+      console.log(response.data);
       this.countryTrips=response.data;
+      this.click=true;
     },(errx) => {
       console.log("Error X: "+errx);
     })
