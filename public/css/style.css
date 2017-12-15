@@ -1,0 +1,296 @@
+/*josefina here line 1*/
+
+body {
+  line-height: 1.6;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  background: #DBEBF5;
+  font-weight: 200;
+}
+
+h1  {
+  text-align: center;
+  color: #13293D;
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+h2, h3 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+}
+
+.mainColumns {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  background: #13293D;
+  color: #D1D1D1;
+  border-radius: 3px;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  overflow: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+
+}
+
+.modal {
+  background: gray;
+  position: fixed;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+}
+
+.showTrip {
+  width: 90%;
+  margin: auto;
+
+}
+
+.listCountries >h3 {
+  text-align: center;
+}
+
+.listCountries > h3:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#closeModal {
+  text-align: right;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 5%;
+  cursor: pointer;
+}
+
+
+.showColumns {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 5%;
+}
+
+.showTrip {
+  display: flex;
+  flex-direction: column;
+  width: 68%;
+  margin: 2%;
+}
+
+.edit {
+  width: 30%;
+  border-radius: 4px;
+  margin: 1%;
+  /*border: .5px solid #888;*/
+}
+
+.editColor {
+  background:  #13293D;
+  border: none;
+}
+
+
+.edit > form {
+  width: 90%;
+  color: white;
+  margin: 10% auto;
+}
+
+.edit > h3 {
+  color: #13293D;
+}
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: #33C3F0;
+  border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB; }
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 28px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+/*END SKELETON CSS-----------------------------------*/
+
+input, textarea {
+  margin-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* line 26*/
+/*blakehereline 27*/
