@@ -92,6 +92,9 @@ app.controller("MainController",["$http",function ($http) {
       console.log("New Trip: "+response.data);
       this.trip = response.data;
       this.newTrip=response.data;
+      this.countries.push(this.newTrip.country);
+      this.formData={};
+      console.log(this.newTrip);
     },(errx) => {
       console.log("Error X: "+errx);
     })
