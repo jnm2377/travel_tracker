@@ -159,7 +159,7 @@ app.controller("MainController",["$http",function ($http) {
   this.backup = () => {
     const backupIndex = this.countryTrips.indexOf(this.trip);
     this.trip=this.tripbackup;
-    this.countryTrips[backupIndex]=this.holidaybackup;
+    this.countryTrips[backupIndex]=this.tripbackup;
     this.edit = false;
   }
 
